@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -21,14 +20,12 @@ public class PlayerMove : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		rg.velocity = Vector2.zero;
+	void Update () {
+		Debug.Log("Lol ,is " + Random.Range(0,2));
 		if (!goingLeft && !goingRight)
 		{
 			//Vector2 center = (_left.position - _right.position )/2;
-			//transform.position = Vector2.MoveTowards(transform.position, new Vector2(0,transform.position.y), speed );
-			//rg.velocity = new Vector2(0, transform.position.y);
+			transform.position = Vector2.MoveTowards(transform.position, new Vector2(0,transform.position.y), speed * Time.deltaTime);
 		}
 
 		if (Input.GetKeyDown(KeyCode.A))
@@ -38,13 +35,10 @@ public class PlayerMove : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.A))
 		{
-			//transform.position = Vector2.MoveTowards(transform.position, _left.position,speed) ;
-			rg.velocity = Vector2.left;
-
+			transform.position = Vector2.MoveTowards(transform.position, _left.position, speed*Time.deltaTime);
 		}
 		if (Input.GetKeyUp(KeyCode.A))
 		{
-			rg.velocity = Vector2.zero;
 			goingLeft = false;
 		}
 		if (Input.GetKeyDown(KeyCode.D))
@@ -53,12 +47,10 @@ public class PlayerMove : MonoBehaviour
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
-			rg.velocity = Vector2.right;
-			//transform.position = Vector2.MoveTowards(transform.position, _right.position, speed);
+			transform.position = Vector2.MoveTowards(transform.position, _right.position, speed*Time.deltaTime);
 		}
 		if (Input.GetKeyUp(KeyCode.D))
 		{
-			rg.velocity = Vector2.zero;
 			goingRight = false;
 		}
 	}

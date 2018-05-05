@@ -8,6 +8,7 @@
         <e p="CameraFollower.cs" t="Include" />
         <e p="LineScript.cs" t="Include" />
         <e p="ObjectPooler.cs" t="Include" />
+        <e p="ObstacleMove.cs" t="Include" />
         <e p="ObstacleSpawner.cs" t="Include" />
         <e p="PlayerMove.cs" t="Include" />
         <e p="PlayerMovement.cs" t="Include" />

@@ -14,13 +14,12 @@ public class RopeAdjustLeft : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		initialYPoint = transform.position.y;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
 	{
-		initialYPoint = transform.position.y;
-
 		Vector2 direction = endPoint.position - transform.position;
 		transform.eulerAngles = new Vector3(0,0,Mathf.Rad2Deg* Mathf.Atan2(direction.y,direction.x));
 
@@ -28,7 +27,7 @@ public class RopeAdjustLeft : MonoBehaviour
 		{
 			if (transform.position.y - initialYPoint <= maxDistance)
 			{
-				transform.position += new Vector3(0, (speed*speed) * Time.deltaTime, 0);
+				transform.position += new Vector3(0, speed * Time.deltaTime, 0);
 			}
 		}
 
@@ -36,7 +35,7 @@ public class RopeAdjustLeft : MonoBehaviour
 		{
 			if ( transform.position.y - initialYPoint  >= -maxDistance)
 			{
-				transform.position += new Vector3(0, -(speed*speed)* Time.deltaTime, 0);
+				transform.position += new Vector3(0, -speed* Time.deltaTime, 0);
 			}
 		}
 	}

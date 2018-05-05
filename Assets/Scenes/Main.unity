@@ -168,7 +168,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 239127557}
-  - component: {fileID: 239127558}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -192,18 +191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &239127558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 239127556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5523ff92a9e45db49a4833aa3b507f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
 --- !u!1 &302986372
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,12 +214,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302986372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.54, y: 6.994, z: 1}
   m_Children:
   - {fileID: 2039109119}
-  m_Father: {fileID: 880240376}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &302986374
 SpriteRenderer:
@@ -500,7 +487,6 @@ GameObject:
   - component: {fileID: 880240375}
   - component: {fileID: 880240374}
   - component: {fileID: 880240373}
-  - component: {fileID: 880240377}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -567,25 +553,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 302986373}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &880240377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 880240372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aae353706726f7d40b1a011f083d1b2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 239127557}
-  speed: 5
-  offset: {x: 0, y: 1, z: 0}
 --- !u!1 &1023119801
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d933d57cfc7ae44baf15822569a59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 4
   _left: {fileID: 1701039784}
   _right: {fileID: 778388804}
 --- !u!212 &1023119803
@@ -690,7 +661,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
@@ -710,7 +681,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.00000011920929}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.1
 --- !u!1 &1025312381
 GameObject:
   m_ObjectHideFlags: 0
