@@ -23,7 +23,7 @@ public class RopeAdjustLeft : MonoBehaviour
 		Vector2 direction = endPoint.position - transform.position;
 		transform.eulerAngles = new Vector3(0,0,Mathf.Rad2Deg* Mathf.Atan2(direction.y,direction.x));
 
-		if (Input.GetKey(KeyCode.Q))
+		if (Input.GetKey(KeyCode.W))
 		{
 			if (transform.position.y - initialYPoint <= maxDistance)
 			{
@@ -31,7 +31,7 @@ public class RopeAdjustLeft : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKey(KeyCode.Z))
+		if (Input.GetKey(KeyCode.S))
 		{
 			if ( transform.position.y - initialYPoint  >= -maxDistance)
 			{

@@ -12,7 +12,22 @@ public class PlayerMove : MonoBehaviour
 
 	private bool goingLeft = false;
 	private bool goingRight = false;
-	
+
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.CompareTag("Coin"))
+		{
+			other.gameObject.SetActive(false);
+			//Add points
+		}
+		if (other.CompareTag("Obstacle"))
+		{
+			Debug.Log("Öldün çık.");
+		}
+		
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -21,10 +36,9 @@ public class PlayerMove : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("Lol ,is " + Random.Range(0,2));
+		
 		if (!goingLeft && !goingRight)
 		{
-			//Vector2 center = (_left.position - _right.position )/2;
 			transform.position = Vector2.MoveTowards(transform.position, new Vector2(0,transform.position.y), speed * Time.deltaTime);
 		}
 
