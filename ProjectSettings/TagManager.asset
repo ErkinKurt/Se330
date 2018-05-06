@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Coin
   - SmallPath
+  - GameManager
+  - GameOverUI
   layers:
   - Default
   - TransparentFX

@@ -9,9 +9,10 @@ public class PlayerMove : MonoBehaviour
 	public float speed;
 	public Transform _left;
 	public Transform _right;
-
+	
 	private bool goingLeft = false;
 	private bool goingRight = false;
+	private GameManager gm;
 
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -20,17 +21,23 @@ public class PlayerMove : MonoBehaviour
 		{
 			other.gameObject.SetActive(false);
 			//Add points
+			gm.score++;
 		}
 		if (other.CompareTag("Obstacle"))
 		{
 			Debug.Log("Öldün çık.");
+			gm.gameFinished = true;
+			this.enabled = false;
+			
 		}
 		
 	}
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
+		this.enabled = true;
+		gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 		rg = GetComponent<Rigidbody2D>();
 	}
 	

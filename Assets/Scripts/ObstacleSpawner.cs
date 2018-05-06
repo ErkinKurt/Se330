@@ -138,6 +138,7 @@ public class ObstacleSpawner : MonoBehaviour
         {
             if ((int) Mathf.Abs(tempArray[j] - tempArray[j - 1]) <= interval)
             {
+                Debug.Log("kasdosakd");
                 MyRandom(min, max, repetation, interval);
             }
         }
