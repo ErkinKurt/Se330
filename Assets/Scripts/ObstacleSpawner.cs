@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Win32;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 
@@ -95,8 +96,11 @@ public class ObstacleSpawner : MonoBehaviour
         if (Time.time > spawnTime)
         {
             RandomPosition(1, spawnPositions.Length-2, 2, 2);
+            Debug.Log("Deb : " + tempPositions[0]);
             for (int i = 0; i < 2; i++)
             {
+                Debug.Log("Deb2 : " +  tempPositions[i]);
+
                 spawnPosition = tempPositions[i];
                 objectPooler.SpawnFromPool(poolTagList[Random.Range(0, 2)], spawnPosition.position, spawnPosition.rotation);
             }

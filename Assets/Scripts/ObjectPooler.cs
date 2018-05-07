@@ -50,9 +50,9 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         if (objectToSpawn.CompareTag("SmallPath"))
         {
+            objectToSpawn.transform.GetChild(1).gameObject.SetActive(true);
+            objectToSpawn.transform.GetChild(2).gameObject.SetActive(true);
             objectToSpawn.transform.GetChild(3).gameObject.SetActive(true);
-            objectToSpawn.transform.GetChild(4).gameObject.SetActive(true);
-            objectToSpawn.transform.GetChild(5).gameObject.SetActive(true);
         }
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
