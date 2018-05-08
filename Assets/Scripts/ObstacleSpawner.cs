@@ -17,110 +17,68 @@ public class ObstacleSpawner : MonoBehaviour
     private int[] tempArray;
     private Transform[] tempPositions;
     private GameObject[] _gameObjects;
-
+    
+    
     private string[] poolTagList =
     {
-        "SmallPath", "Obstacle"
+        "LineObstacle", "Coin"
     };
 
     public float spawnTime;
     public float spawnInterval;
 
-    public float easyInterval;
-    public float mediumInterval;
-    public float hardInterval;
-
+    public float obstacleSpeed;
+    
     public int[] intList;
-
-    private void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time < 5)
-        {
-            Debug.Log("Easy;");
-            Easy();
-        }
-
-        if (Time.time >= 5 && Time.time < 20)
-        {
-            Debug.Log("Med;");
-            Medium();
-        }
-
-        if (Time.time >= 20)
-        {
-            Debug.Log("Hard;");
-            Hard();
-        }
+       SpawnObstacles();
     }
 
     //Give random spawn points
     public void RandomPosition(int min, int max, int repetation, int interval)
     {
-        MyRandom(min,max,repetation,interval);
+        MyRandom(min, max, repetation, interval);
         tempPositions = new Transform[repetation];
-        for (int i = 0; i < repetation ; i++)
+        for (int i = 0; i < repetation; i++)
         {
             tempPositions[i] = spawnPositions[intList[i]];
         }
     }
 
-    public void Easy()
+   
+    public void SpawnObstacles()
     {
-        spawnInterval = easyInterval;
         Debug.Log(spawnPositions.Length);
-        Transform[] tempList;
 
         if (Time.time > spawnTime)
         {
-            RandomPosition(0,spawnPositions.Length,3,0);
-            for (int i = 0; i < 3; i++)
+            int a = spawnPositions.Length;
+            if (Random.RandomRange(0, 10) == 1)
             {
-            spawnPosition = tempPositions[i];
-            objectPooler.SpawnFromPool(poolTagList[1], spawnPosition.position, spawnPosition.rotation);
+                a = Random.RandomRange(2,4);
             }
-            spawnTime = Time.time + spawnInterval;
-        }
-    }
-
-    public void Medium()
-    {
-        spawnInterval = mediumInterval;
-
-        if (Time.time > spawnTime)
-        {
-            RandomPosition(1, spawnPositions.Length-2, 2, 2);
-            for (int i = 0; i < 2; i++)
+            int temp = Random.RandomRange(0, 6);
+            for (int i = 0; i < spawnPositions.Length; i++)
             {
-                spawnPosition = tempPositions[i];
-                objectPooler.SpawnFromPool(poolTagList[Random.Range(0, 2)], spawnPosition.position, spawnPosition.rotation);
+                spawnPosition = spawnPositions[i];
+                if (i == temp || i == a)
+                {
+                    GameObject coin = objectPooler.SpawnFromPool(poolTagList[1], spawnPosition.position, spawnPosition.rotation);
+                    coin.GetComponent<ObstacleMove>().speed = obstacleSpeed;
+                    continue;
+                }
+                
+                GameObject o = objectPooler.SpawnFromPool(poolTagList[0], spawnPosition.position, spawnPosition.rotation);
+                o.GetComponent<ObstacleMove>().speed = obstacleSpeed;
             }
 
             spawnTime = Time.time + spawnInterval;
         }
     }
 
-    public void Hard()
-    {
-        spawnInterval = hardInterval;
-
-        if (Time.time > spawnTime)
-        {
-            RandomPosition(1, spawnPositions.Length-2, 2, 2);
-            for (int i = 0; i < 2; i++)
-            {
-                spawnPosition = tempPositions[i];
-                objectPooler.SpawnFromPool(poolTagList[Random.Range(0, 2)], spawnPosition.position, spawnPosition.rotation);
-            }
-
-            spawnTime = Time.time + spawnInterval;
-        }
-    }
 
     public void MyRandom(int min, int max, int repetation, int interval)
     {
@@ -144,6 +102,5 @@ public class ObstacleSpawner : MonoBehaviour
         }
 
         intList = tempArray;
-       
     }
 }

@@ -6,10 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	public GameObject gameOverUI;
+	public ObstacleSpawner obstacleSpawner;
 
 	public bool gameFinished = false;
 	public int score = 0;
-
+	public float difficulty;
+	public float obstacleSpeedRatio;
+	public float obstacleSpawnSpeedRatio;
 
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +23,13 @@ public class GameManager : MonoBehaviour
 			gameFinished = false;
 		}
 
-		//Debug.Log("Score: " + score);
+		if (Time.time > difficulty)
+		{
+			obstacleSpawner.obstacleSpeed *= obstacleSpeedRatio;
+			obstacleSpawner.spawnInterval *= obstacleSpawnSpeedRatio;
+			difficulty += 15;
+		}
+		
 	}
 
 	public void RestartLevel()
