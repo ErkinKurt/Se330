@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
 		if (other.CompareTag("Coin"))
 		{
 			other.gameObject.SetActive(false);
-			//Add points
+			
 			gm.score++;
 		}
 		if (other.CompareTag("Obstacle"))

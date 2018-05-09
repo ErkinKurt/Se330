@@ -48,12 +48,7 @@ public class ObjectPooler : MonoBehaviour
         
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
         objectToSpawn.SetActive(true);
-        if (objectToSpawn.CompareTag("SmallPath"))
-        {
-            objectToSpawn.transform.GetChild(3).gameObject.SetActive(true);
-            objectToSpawn.transform.GetChild(4).gameObject.SetActive(true);
-            objectToSpawn.transform.GetChild(5).gameObject.SetActive(true);
-        }
+        
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
 

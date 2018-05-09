@@ -9,6 +9,8 @@ TagManager:
   - SmallPath
   - GameManager
   - GameOverUI
+  - LeftSide
+  - RightSide
   layers:
   - Default
   - TransparentFX
